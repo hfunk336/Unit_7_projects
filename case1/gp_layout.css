@@ -27,14 +27,17 @@ body{
    display: flex;
    -webkit-flex-flow: row wrap;
    flex-flow: row wrap;
+   /* sets the body to wrap */
 }
 section#sheet{
    -webkit-flex: 3 1 301px;
    flex: 3 1 301px;
+   /* sets the growth for the sheet section */
 }
 article{
    -webkit-flex: 1 3 180px;
    flex: 1 3 180px;
+   /* sets the growth to be smaller than the section */
 }
 
 
@@ -43,10 +46,17 @@ article{
    ============================================
 */
 @media only screen and (max-width: 480px){
-   img.class{
+   img.panel{
       width: 100%;
    }
-   
+   nav.horizontal{
+      order: 99;
+      /* second to last item */
+   }
+   body>footer{
+      order: 100;
+      /* last item */
+   }
 }
 
 
@@ -55,4 +65,30 @@ article{
 	Tablet and Desktop Devices: Greater than 480 pixels
    ===================================================
 */
-
+@media only screen and (min-width: 481px){
+   nav.horizontal ul{
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row none;
+      flex-flow: row none;
+      height: 40px;
+      /* makes the nav horizontal */
+   }
+   nav.horizontal ul li{
+      -webkit-flow: 1 1 auto;
+      flex: 1 1 auto;
+   }
+   img.size1{
+      width: 100%;
+   }
+   img.size2{
+      width: 60%;
+   }
+   img.size3{
+      width: 40%;
+   }
+   img.size4{
+      width: 30%;
+   }
+   /* sizes the images */
+}
