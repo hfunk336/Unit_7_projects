@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 5
+   Case Problem 2
+   
+   Author:   
+   Date:       
+   
+   Filename: wc_styles.css
+
+   This file contains the layout styles and media
+   queries used with sample pages from the Willet
+   Creek Golf Course website.
+
+*/
+
+
+/* Import Design Styles */
+@import url("wc_designs.css");
+ 
+/* Flex Layout Styles */
+body{
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+}
+nav#hole_list{
+   -webkit-flex: 1 3 140px;
+   flex: 1 3 140px;
+}
+/* makes it so the hole list will grow and 
+shrink with the webpage */
+article{
+   -webkit-flex: 3 1 341px;
+   flex: 3 1 341px;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+}
+/* articles will grow and shrink with the page as well as 
+wrap into the next row. */
+article section#stats{
+   -webkit-flex: 1 4 120px;
+   flex: 1 4 120px;
+}
+/* stats will shrink and grow */
+article section#summary{
+   -webkit-flex: 4 1 361px;
+   flex: 4 1 361px;
+}
+/* summmary will shrink and grow */
+aside{
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+}
+/* aside will wrap to the next row */
+aside div{
+   -webkit-flex: 1 1 180px;
+   flex: 1 1 180px;
+}
+/* the divs in the aside will shrink and grow */
+/* =============================
+	Mobile Styles: 0 - 480 pixels
+   =============================
+*/
+@media only screen and (max-width: 480px){
+   nav#hole_list{
+      order: 99;
+   }
+   /* second to last thing on the page */
+   footer{
+      order: 100;
+   }
+   /* last thing on the page */
+   nav.horizontal ul{
+      display: none;
+   }
+   /* hidden on mobile */
+   a#navicon{
+      display: block;
+      /* makes the navicon appear when its on mobile */
+   }
+   a#navicon:hover+ul, nav.horizontal ul:hover{
+      display: block;
+      /* sets up the dropdown */
+   }
+   aside{
+      display: none;
+   }
+   /* hidden on mobile */
+}
+
+/* =================================================
+	Tablet and Desktop Styles: 481 pixels and greater
+   =================================================
+*/
+@media only screen and (min-width: 481px){
+   a#navicon{
+      display:none;
+   }
+   /* navicon hidden on anything except mobile */
+   nav.horizontal ul{
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row nowrap;
+      flex-flow: row nowrap; 
+   }
+   /* makes the horizontal nav into one row */
+   nav.horizontal ul li{
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
+   }
+   /* makes it so the items in the nav shrink and
+   grow */
+}
