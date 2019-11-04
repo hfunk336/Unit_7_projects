@@ -23,14 +23,18 @@
 	General Styles for All Devices
    ===============================
 */
-nav#bottom ul{
+nav#bottom{
    display: -webkit-flex;
    display: flex;
    -webkit-flex-flow: row nowrap;
    flex-flow: row nowrap;
    justify-content: center;
-   -webkit-flex: 1 1 150px;
-   flex: 1 1 150px
+}
+/* sets up the flex box for the bottom nav */
+nav#bottom ul{
+   -webkit-flex: 0 1 150px;
+   flex: 0 1 150px;
+   /* can't grow beyond 150px */
 }
 
 /* ===============================
@@ -38,18 +42,22 @@ nav#bottom ul{
    ===============================
 */
 @media only screen and (max-width: 480px){
+   /* will only take affect on mobile devices */
    body{
       color: rgb(211, 211, 211);
       background-color: rgb(51, 51, 51);
    }
    aside, article>img, section#spotlight{
       display: none;
+      /* won't be displayed on mobile devices */
    }
    nav#top ul{
       display: -webkit-flex;
       display: flex;
-      -webkit-flex: row wrap;
-      flex: row wrap;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      /* flex FlOW flex FLOW flex FLOW *I forgot flow when I was
+      coding and couldn't find my error when it wasn't working */
    }
    nav#top ul li{
       font-size: 2.2em;
@@ -57,49 +65,40 @@ nav#bottom ul{
       flex: 1 1 130px;
    }
    nav#top ul li:nth-of-type(1){
-      background-image: url(cw_image01.png);
-      background-position: auto auto;
-      background-size: contain contain; 
+      background: url(cw_image01.png) center/contain no-repeat;
    }
    nav#top ul li:nth-of-type(2){
-      background-image: url(cw_image02.png);
-      background-position: center center;
-      background-size: contain contain; 
+      background: url(cw_image02.png) center/contain no-repeat;
+ 
    }
    nav#top ul li:nth-of-type(3){
-      background-image: url(cw_image03.png);
-      background-position: auto auto;
-      background-size: contain contain; 
+      background: url(cw_image03.png) center/contain no-repeat;
+
    }
    nav#top ul li:nth-of-type(4){
-      background-image: url(cw_image04.png);
-      background-position: auto auto;
-      background-size: contain contain; 
+      background: url(cw_image04.png) center/contain no-repeat;
+
    }
    nav#top ul li:nth-of-type(5){
-      background-image: url(cw_image05.png);
-      background-position: auto auto;
-      background-size: contain contain; 
+      background: url(cw_image05.png) center/contain no-repeat;
+
    }
    nav#top ul li:nth-of-type(6){
-      background-image: url(cw_image06.png);
-      background-position: auto auto;
-      background-size: contain contain; 
+      background: url(cw_image06.png) center/contain no-repeat;
+
    }
-   p#links a{
-      display: -webkit-flex;
-      display: flex;
+   /* the 1st image will go with the first list item and 2nd
+   image will go with the second list item etc. */
+   p#links{
       -webkit-flex-flow: row nowrap;
       flex-flow: row nowrap;
-   }
-   p#links{
       justify-content: space-around;
    }
-   p#links a:link, p#links a:visited{
+   p#links a{
       color: white;
-      background-color: (220, 27, 27);
+      background-color: rgb(220, 27, 27);
       border-radius: 20px;
-      padding: 10px 10px 10px 10px;
+      padding: 10px;
       text-decoration: none;
    }
 }
@@ -110,32 +109,33 @@ nav#bottom ul{
 */
 @media only screen and (min-width: 481px){
    body{
-      display: -webkit-flex;
+      display: -webkit-flex-box;
       display: flex;
       -webkit-flex-flow: row wrap;
       flex-flow: row wrap;
    }
    article{
-      -webkit-flex: 2 1 400px;
-      flex: 1 2 200px;
+      flex-basis: 400px;
+      -webkit-flex: 2 1;
+      flex: 2 1;
    }
    aside{
-      -webkit-flex: 1 2 200px;
-      flex: 1 2 200px;
+      flex-basis: 200px;
+      -webkit-flex: 1 2;
+      flex: 1 2;
    }
    nav#top ul{
       display: -webkit-flex;
       display: flex;
       background-color: rgb(51, 51, 51);
       height: 50px;
-      justify-content: center center;
-      align-items: center center;
+      justify-content: center;
+      align-items: center;
    }
-   nav#top ul li{
-      -webkit-flex: 1 1 80px;
-      flex: 1 1 80px;
+   nav#top li{
+      max-width: 80px;
    }
-   p#links{
+   article p#links{
       display: none;
    }
 }
